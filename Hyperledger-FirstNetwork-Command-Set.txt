@@ -1,0 +1,19 @@
+Code Setup and variable setup 
+---------------------------------------------------------------------
+git clone -b master https://github.com/hyperledger/fabric-samples.git
+sudo curl -sSL https://goo.gl/6wtTN5 | sudo bash -s 1.1.0 1.1.0 0.4.6
+export PATH=/home/paperspace/HYPER_LEDGER/FirstNet/fabric-samples/bin:$PATH
+
+Compilation and bringing up the setup
+---------------------------------------------------------------------
+1. /home/paperspace/HYPER_LEDGER/FirstNet/fabric-samples/first-network
+2. ./byfn.sh generate            : to create the cryptographic and channel artifacts.
+3. ./byfn.sh up                  : to bring up the network and run a scenarion using chaincode.
+
+ Might fail firt time with following error :
+    Error: got unexpected status: FORBIDDEN -- Failed to reach implicit threshold of 1 sub-policies, required 1 remaining: permission denied
+
+4.  sudo ./byfn.sh -m down       : Clean up the crypto and docker machines
+5.  sudo ./byfn.sh -m up         : Bring the session up
+
+6.  sudo ./byfn.sh -m down       : Shutdown the session
